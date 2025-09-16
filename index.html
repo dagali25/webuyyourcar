@@ -99,6 +99,42 @@
             color: var(--gray-light);
         }
         
+        .valuation-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: -50px auto 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .form-flex {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
         .btn {
             display: inline-block;
             background: var(--primary);
@@ -120,15 +156,23 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
         }
         
-        .btn-outline:hover {
-            background: white;
+        .trust-score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            color: var(--secondary);
+        }
+        
+        .trust-score i {
             color: var(--primary);
+            margin-right: 10px;
         }
         
         .how-it-works {
@@ -188,133 +232,124 @@
             margin-bottom: 15px;
         }
         
-        .upload-section {
-            background: white;
-            padding: 80px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-bottom: 80px;
-        }
-        
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .upload-form {
+        .benefits {
             background: var(--gray-light);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 14px 15px;
-            border: 1px solid var(--gray);
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 2px var(--primary-light);
-        }
-        
-        .upload-area {
-            border: 2px dashed var(--gray);
-            border-radius: 10px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 20px;
-            background: white;
-        }
-        
-        .upload-area:hover {
-            border-color: var(--primary);
-            background: rgba(255, 140, 0, 0.05);
-        }
-        
-        .upload-area i {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .upload-area p {
-            color: var(--secondary);
-        }
-        
-        #image-preview {
-            margin-top: 20px;
-            display: none;
-            max-width: 100%;
-            max-height: 300px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .testimonials {
-            background: var(--primary-light);
             padding: 80px 0;
-            text-align: center;
         }
         
-        .testimonial-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
         
-        .testimonial {
+        .benefit-card {
             background: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
-        .testimonial-text {
-            font-style: italic;
+        .benefit-card i {
+            font-size: 40px;
+            color: var(--primary);
             margin-bottom: 20px;
-            color: var(--dark);
         }
         
-        .testimonial-author {
+        .faq-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .accordion {
+            margin-top: 40px;
+        }
+        
+        .accordion-item {
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            padding: 20px;
+            background: var(--gray-light);
+            cursor: pointer;
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
         
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
         }
         
-        .author-details h4 {
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 300px;
+        }
+        
+        .branches {
+            padding: 80px 0;
+            background: var(--gray-light);
+            text-align: center;
+        }
+        
+        .branch-search {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .branch-search input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+        }
+        
+        .guides {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .guide-card {
+            background: var(--gray-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .guide-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .guide-content {
+            padding: 20px;
+        }
+        
+        .guide-content h3 {
+            margin-bottom: 15px;
             color: var(--primary-dark);
+        }
+        
+        .charity {
+            padding: 80px 0;
+            background: var(--primary-light);
+            text-align: center;
         }
         
         footer {
@@ -323,41 +358,52 @@
             padding: 60px 0 30px;
         }
         
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
+            margin-bottom: 40px;
         }
         
         .footer-section h3 {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
             color: var(--primary-light);
         }
         
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--primary);
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
         }
         
         .footer-bottom {
+            text-align: center;
             padding-top: 30px;
             border-top: 1px solid #334155;
-            text-align: center;
             color: var(--gray);
         }
         
@@ -374,16 +420,16 @@
                 font-size: 18px;
             }
             
+            .form-flex {
+                flex-direction: column;
+            }
+            
             .steps {
                 gap: 20px;
             }
             
             .step {
                 width: 100%;
-            }
-            
-            .upload-form {
-                padding: 20px;
             }
         }
     </style>
@@ -397,10 +443,11 @@
                     We Buy Your Car
                 </div>
                 <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">How It Works</a>
-                    <a href="#">Sell Your Car</a>
-                    <a href="#">Contact</a>
+                    <a href="#valuation">Valuation</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#branches">Branches</a>
+                    <a href="#guides">Guides</a>
+                    <a href="#faq">FAQ</a>
                 </div>
             </nav>
         </div>
@@ -409,142 +456,226 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Sell Your Car Fast & Easy</h1>
-                <p>Get an instant offer and sell your car in under an hour. We handle all the paperwork!</p>
-                <a href="#upload-form" class="btn">Get Started Now</a>
+                <h1>Sell Your Car in 3 Simple Steps</h1>
+                <p>We're rated 'Excellent' on Trustpilot with over 299,820 reviews</p>
             </div>
         </section>
 
-        <section class="how-it-works">
+        <section class="container">
+            <div class="valuation-form" id="valuation">
+                <h2>30 Second Car Valuation</h2>
+                <form>
+                    <div class="form-flex">
+                        <div class="form-group">
+                            <label for="reg">Enter your reg</label>
+                            <input type="text" id="reg" class="form-control" placeholder="e.g. AB12 CDE">
+                        </div>
+                        <div class="form-group">
+                            <label for="mileage">Mileage</label>
+                            <input type="text" id="mileage" class="form-control" placeholder="e.g. 32,000">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-block" style="margin-top: 20px;">Get my car valuation</button>
+                </form>
+                <div class="trust-score">
+                    <i class="fas fa-star"></i>
+                    <span>TrustScore 4.7 | 299,820 reviews</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
             <div class="container">
                 <h2 class="section-title">How It Works</h2>
                 <div class="steps">
                     <div class="step">
-                        <i class="fas fa-camera"></i>
-                        <h3>Upload Photos</h3>
-                        <p>Take a few pictures of your car from different angles.</p>
+                        <i class="fas fa-tag"></i>
+                        <h3>Get your free valuation</h3>
+                        <p>Start by entering your registration, mileage, email and postcode.</p>
                     </div>
                     <div class="step">
-                        <i class="fas fa-clipboard-list"></i>
-                        <h3>Enter Details</h3>
-                        <p>Provide information about your car's make, model, and condition.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fas fa-dollar-sign"></i>
-                        <h3>Get an Offer</h3>
-                        <p>Receive a fair, no-obligation offer within minutes.</p>
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Book an appointment</h3>
+                        <p>Choose a date, time and branch that is convenient for you. We've got over 500 branches around the UK.</p>
                     </div>
                     <div class="step">
                         <i class="fas fa-money-bill-wave"></i>
-                        <h3>Get Paid</h3>
-                        <p>Complete the paperwork and get paid on the spot.</p>
+                        <h3>Sell your car</h3>
+                        <p>Drive to your chosen branch, we'll confirm your valuation. If you're happy to sell your old car, we'll set up your payment.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="upload-section" id="upload-form">
+        <section class="benefits">
             <div class="container">
-                <h2 class="section-title">Sell Your Car Today</h2>
-                <div class="form-container">
-                    <form class="upload-form" id="carForm">
-                        <div class="form-group">
-                            <label for="make">Car Make</label>
-                            <input type="text" id="make" class="form-control" placeholder="e.g. Toyota" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="model">Car Model</label>
-                            <input type="text" id="model" class="form-control" placeholder="e.g. Camry" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="year">Year</label>
-                            <input type="number" id="year" class="form-control" placeholder="e.g. 2018" min="1990" max="2023" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mileage">Mileage</label>
-                            <input type="number" id="mileage" class="form-control" placeholder="e.g. 45000" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="condition">Condition</label>
-                            <select id="condition" class="form-control" required>
-                                <option value="">Select condition</option>
-                                <option value="excellent">Excellent</option>
-                                <option value="good">Good</option>
-                                <option value="fair">Fair</option>
-                                <option value="poor">Poor</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Upload Car Photos</label>
-                            <div class="upload-area" id="uploadArea">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p>Click to upload or drag and drop</p>
-                                <p>PNG, JPG up to 5MB</p>
-                                <input type="file" id="carImage" accept="image/*" style="display: none;">
-                            </div>
-                            <img id="image-preview" src="#" alt="Preview">
-                        </div>
-                        <button type="submit" class="btn">Get Your Offer</button>
-                    </form>
+                <h2 class="section-title">Why Sell Your Car With Us?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>4 Day Price Guarantee</h3>
+                        <p>Your valuation is secured for 4 days. This allows you to book an appointment at a time that's convenient for you.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Sell in Under an Hour</h3>
+                        <p>Our average drive time to branch is less than 11 minutes, and the average appointment takes less than 30 minutes.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>No Obligation to Sell</h3>
+                        <p>We don't use pushy sales tactics. We provide a no-hassle assessment and allow you to decide.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-user-times"></i>
+                        <h3>Avoid Private Sale Hassle</h3>
+                        <p>Avoid the time-consuming process of a private sale. We guide you through any complications.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Cash in 15 Minutes</h3>
+                        <p>By choosing our Immediate Payment option, you can have the cash in your bank in less than 15 minutes.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-money-check-alt"></i>
+                        <h3>We Settle Any Finance</h3>
+                        <p>Looking to sell a used car with outstanding finance? No problem, we can settle it!</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials">
+        <section class="faq-section" id="faq">
             <div class="container">
-                <h2 class="section-title">What Our Customers Say</h2>
-                <div class="testimonial-container">
-                    <div class="testimonial">
-                        <p class="testimonial-text">"I sold my car through We Buy Your Car and the process was incredibly smooth. I got a fair offer and was paid the same day!"</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
-                            <div class="author-details">
-                                <h4>John Smith</h4>
-                                <p>Sold his Toyota Camry</p>
-                            </div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>How do I sell my car with We Buy Your Car?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Simply enter your registration and mileage to get an instant valuation. Then book an appointment at one of our branches, bring your car and documents, and we'll complete the sale in under an hour.</p>
                         </div>
                     </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"I was hesitant at first, but the team at We Buy Your Car made everything so easy. No haggling, no stress, just a fair price for my car."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
-                            <div class="author-details">
-                                <h4>Sarah Johnson</h4>
-                                <p>Sold her Honda Civic</p>
-                            </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>What should I expect at my appointment?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Your appointment will take less than 30 minutes on average. We'll inspect your car, confirm the valuation, handle all paperwork, and arrange payment. You can have the money in your bank in as little as 15 minutes.</p>
                         </div>
                     </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"I needed to sell my car quickly before moving overseas. We Buy Your Car offered me a great price and handled all the paperwork."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Michael Chen">
-                            <div class="author-details">
-                                <h4>Michael Chen</h4>
-                                <p>Sold his Ford Focus</p>
-                            </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>What should I bring to my appointment?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Please bring your driving license, V5C logbook, service history, MOT certificate, and any other relevant documents for your vehicle.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>How and when will I be paid?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We offer immediate bank transfer that can have funds in your account within 15 minutes, or you can choose a bank transfer that typically arrives within 2 hours.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="branches" id="branches">
+            <div class="container">
+                <h2 class="section-title">Over 500 Branches Nationwide</h2>
+                <p>On average we're only 11 minutes away. Find your nearest branch by entering your postcode below.</p>
+                <div class="branch-search">
+                    <input type="text" placeholder="Enter your postcode">
+                    <button class="btn">Find branch</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="guides" id="guides">
+            <div class="container">
+                <h2 class="section-title">Motoring Tips and Guides</h2>
+                <p>We've compiled a comprehensive range of guides and information, from maintenance tips to buying and selling guides.</p>
+                <div class="guides-grid">
+                    <div class="guide-card">
+                        <div class="guide-content">
+                            <h3>Selling & Buying Guides</h3>
+                            <p>Selling or buying a car is easier thanks to our comprehensive guides.</p>
+                            <a href="#" class="btn">Read more</a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-content">
+                            <h3>Car Ownership Guides</h3>
+                            <p>Learn about car insurance, car tax, MOT rules and more.</p>
+                            <a href="#" class="btn">Read more</a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-content">
+                            <h3>Car Maintenance Guides</h3>
+                            <p>Car maintenance can be easy with a few simple tips from our experts.</p>
+                            <a href="#" class="btn">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="charity">
+            <div class="container">
+                <h2 class="section-title">Supporting Charity</h2>
+                <p>We've been raising money for charity partners across the years, fundraising at branches and beyond.</p>
+                <a href="#" class="btn">Find out more</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>We Buy Your Car</h3>
-                    <p>Sell your car quickly and easily with our seamless process. Get the best value for your vehicle without the hassle.</p>
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Car valuation</a></li>
+                        <li><a href="#">Scrap my car</a></li>
+                        <li><a href="#">Sell my motorhome</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Tips & Guides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Selling & buying guides</a></li>
+                        <li><a href="#">Car ownership guides</a></li>
+                        <li><a href="#">Car maintenance guides</a></li>
+                        <li><a href="#">Our blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Frequently asked questions</a></li>
+                        <li><a href="#">Branch locator</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">About us</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Auto Lane, Car City</p>
-                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@webuyyourcar.com</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="socials">
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Auto Lane, Car City</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> (555) 123-4567</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@webuyyourcar.com</a></li>
+                    </ul>
+                    <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -553,80 +684,46 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 We Buy Your Car. All rights reserved.</p>
+                <p>&copy; We Buy Your Car Ltd. 2006 - 2025</p>
+                <p>
+                    <a href="#">Terms & Conditions</a> | 
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Cookie Policy</a>
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Image upload functionality
-        const uploadArea = document.getElementById('uploadArea');
-        const carImageInput = document.getElementById('carImage');
-        const imagePreview = document.getElementById('image-preview');
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
         
-        uploadArea.addEventListener('click', () => {
-            carImageInput.click();
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+                
+                const icon = header.querySelector('i');
+                if (content.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
         });
         
-        uploadArea.addEventListener('dragover', (e) => {
+        // Simple form submission
+        document.querySelector('.valuation-form form').addEventListener('submit', function(e) {
             e.preventDefault();
-            uploadArea.style.borderColor = '#FF8C00';
-            uploadArea.style.backgroundColor = 'rgba(255, 140, 0, 0.1)';
-        });
-        
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.style.borderColor = '#94a3b8';
-            uploadArea.style.backgroundColor = 'white';
-        });
-        
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#94a3b8';
-            uploadArea.style.backgroundColor = 'white';
-            
-            if (e.dataTransfer.files.length) {
-                carImageInput.files = e.dataTransfer.files;
-                previewImage(e.dataTransfer.files[0]);
-            }
-        });
-        
-        carImageInput.addEventListener('change', () => {
-            if (carImageInput.files.length) {
-                previewImage(carImageInput.files[0]);
-            }
-        });
-        
-        function previewImage(file) {
-            const reader = new FileReader();
-            
-            reader.onload = function(e) {
-                imagePreview.src = e.target.result;
-                imagePreview.style.display = 'block';
-                uploadArea.style.display = 'none';
-            }
-            
-            reader.readAsDataURL(file);
-        }
-        
-        // Form submission
-        document.getElementById('carForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const make = document.getElementById('make').value;
-            const model = document.getElementById('model').value;
-            const year = document.getElementById('year').value;
+            const reg = document.getElementById('reg').value;
             const mileage = document.getElementById('mileage').value;
-            const condition = document.getElementById('condition').value;
             
-            // In a real application, you would send this data to a server
-            // For this example, we'll just show an alert
-            alert(`Thank you for submitting your ${year} ${make} ${model}!\nWe'll review your information and contact you with an offer soon.`);
-            
-            // Reset form
-            this.reset();
-            imagePreview.style.display = 'none';
-            uploadArea.style.display = 'block';
+            if (reg && mileage) {
+                alert(`Thanks! We're calculating your valuation for ${reg} with ${mileage} miles...`);
+                // In a real application, this would send the data to a server
+            }
         });
     </script>
 </body>
